@@ -87,39 +87,42 @@ def depthFirstSearch(problem):
     print("Start's successors:", problem.getSuccessors(problem.getStartState()))
     """
     "*** YOUR CODE HERE ***"
+    #checks to see if root is goal state,
+    root = problem.getStartState()
+    if problem.isGoalState(root):
+        return[0]
+
     #initializes the stack and creates a set for nodes visited
     node_stack = util.Stack()
     nodes_visited = set()
 
     #pushes the starting state to the node stack
-    node_stack.push((problem.getStartState(), []))
+    node_stack.push((root, []))
 
     while node_stack:
 
         #starts at the top of the stack and pops the node at the top and gives the next one the path designation
-        pop = node_stack.pop()
-        node = pop[0]
-        path = pop[1]
+        popped_stack = node_stack.pop()
+        node = popped_stack[0]
+        path = popped_stack[1]
 
         #checks to see if the node we're currently at is a the goal state
         if problem.isGoalState(node):
             break
 
-        #otherwise continues through the rest of the nodes
-        else:
-            #adds node to visited set if not already in it
-            if node not in nodes_visited:
-                nodes_visited.add(node)
+        #adds node to visited set if not already in it
+        if node not in nodes_visited:
+            nodes_visited.add(node)
 
-                #gets the successor to the current node and checks their successors
-                successors = problem.getSuccessors(node)
+            #gets the successor to the current node and checks their successors
+            successors = problem.getSuccessors(node)
 
-                #loops through the child nodes until it gets to the bottom tier, adding to the path as it goes
-                for successor in successors:
-                    sucessor_node = successor[0]
-                    sucessor_path = successor[1]
-                    full_path = path + [sucessor_path]
-                    node_stack.push((sucessor_node, full_path))
+            #loops through the child nodes until it gets to the bottom tier, adding to the path as it goes
+            for successor in successors:
+                sucessor_node = successor[0]
+                sucessor_path = successor[1]
+                full_path = path + [sucessor_path]
+                node_stack.push((sucessor_node, full_path))
 
     return path
 
