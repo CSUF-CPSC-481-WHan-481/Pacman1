@@ -3,6 +3,9 @@ Focuses on the fundamentals of AI with group members writing a depth first and b
 
 Group Members
 Benjamin Ahn
-Donghui Feng    fengdon2@csu.fullerton.edu
-Arsal Khan      arsalziakhan@gmail.com
-Jared Schneider JaredPSchneider@csu.fullerton.edu
+
+/nDonghui Feng    fengdon2@csu.fullerton.edu
+
+/nArsal Khan      arsalziakhan@gmail.com
+
+/nJared Schneider JaredPSchneider@csu.fullerton.edu
